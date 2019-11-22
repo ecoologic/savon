@@ -114,7 +114,7 @@ module Savon
     end
 
     def only_response
-      response = only_request.response
+      response = @only_request.response
       http.set_cookies(response.http)
       if wsse.verify_response
         WSSE::VerifySignature.new(response.http.body).verify!
